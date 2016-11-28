@@ -1,3 +1,6 @@
+// Main entry-point of the application.
+
+
 import $ from 'jquery';
 import _ from 'underscore';
 import ApplicationView from 'app/views/application_view';
