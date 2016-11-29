@@ -1,25 +1,23 @@
 // View for an individual quote.
 
-var QuoteView = Backbone.View.extend({
-  initalize: function(options) {
-    this.symbol = options.symbol;
-    this.price = options.price;
+import Backbone from 'backbone';
 
-    // Compile a template to be shared between the individual quotes
-    this.quoteTemplate = _.template($('#tmpl-quote-view').html());
+var QuoteView = Backbone.View.extend({
+  initialize: function(options) {
+    this.symbol = options.quote.symbol;
+    this.price = options.quote.price;
+
+    this.template = options.template;
 
   },
 
   render: function() {
-    var html = this.quoteTemplate(
-      {
-        symbol: this.symbol,
-        price: this.price
-     });
-
+    var html = this.template({symbol: this.symbol, price: this.price});
     this.$el.html(html);
-
+    
     // Enable chained calls
     return this;
   }
 });
+
+export default QuoteView;
